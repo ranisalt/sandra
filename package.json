@@ -6,6 +6,8 @@
   "jsnext:main": "src/index.js",
   "scripts": {
     "build": "babel -d lib/ src/",
+    "clean": "rm -rf coverage .nyc_output",
+    "prepublish": "npm run build && npm run test && npm run clean",
     "test": "xo && nyc --reporter=lcov ava -r babel-register"
   },
   "repository": {
