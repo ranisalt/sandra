@@ -1,25 +1,41 @@
 import test from 'ava'
 import {Benchmark} from './src/'
 
-const noop = async () => {}
-const timeout = 1
+const timeout = 10
 
-test('calls setup', async t => {
-  t.plan(1)
+// fuck this is ugly but works as a charm
+const sleep = delay => () => new Promise(resolve => setTimeout(resolve, delay))
 
-  const bench = new Benchmark(noop, {
-    setup: () => {
-      t.pass()
-    }, timeout
-  })
-  await bench.run()
+test('run the function for given time', async t => {
+  const bench = new Benchmark('test', sleep(timeout * 2))
+  const stats = await bench.run(timeout)
+  t.is(stats.length, 1)
+  t.true(stats[0] >= (timeout * 2000))
 })
 
-test('calls teardown', async t => {
-  const bench = new Benchmark(noop, {
-    teardown: () => {
-      t.pass()
-    }, timeout
-  })
-  await bench.run()
+test('call the passed function', async t => {
+  let called = false
+  const bench = new Benchmark('test', async sleep => {
+    called = true
+    await sleep()
+  }, sleep(timeout))
+  await bench.run(timeout)
+  t.true(called)
+})
+
+test('return elapsed time array', async t => {
+  const bench = new Benchmark('test', sleep(1))
+  const stats = await bench.run(timeout)
+  t.true(Array.isArray(stats))
+  t.true(typeof stats[0] === 'number')
+})
+
+test('pass args to called function', async t => {
+  let called = 0
+  const bench = new Benchmark('test', async (num, sleep) => {
+    called = num
+    await sleep()
+  }, 42, sleep(timeout))
+  await bench.run(timeout)
+  t.is(called, 42)
 })
