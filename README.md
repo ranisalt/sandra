@@ -1,5 +1,4 @@
 # sandra
-
 Sandra is a simple, promise-only, low overhead benchmarking library for ES2015.
 It only contains benchmark and suite classes, both of which have a single
 method `run`.
@@ -8,7 +7,6 @@ The name refers to [a popular Brazilian song](https://youtu.be/xL6ZHzTvm3g) by
 Sidney Magal.
 
 # API
-
 As aforementioned, you have two classes at your disposal:
 
 ```js
@@ -56,6 +54,11 @@ import {Benchmark, Suite} from 'sandra'
 You are ready to rock!
 
 # Example
-
 You can check [node-argon2 benchmarks](https://github.com/ranisalt/node-argon2/blob/d138f7d33955c571ee5c5eb7d4b81032be0f05fd/benchmark.js)
 for a real example on how to use.
+
+
+# License
+Work licensed under the [MIT License](LICENSE). Please check
+[P-H-C/phc-winner-argon2] (https://github.com/P-H-C/phc-winner-argon2) for
+license over Argon2 and the reference implementation.
