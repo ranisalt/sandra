@@ -54,3 +54,8 @@ import {Benchmark, Suite} from 'sandra'
 ```
 
 You are ready to rock!
+
+# Example
+
+You can check [node-argon2 benchmarks](https://github.com/ranisalt/node-argon2/blob/d138f7d33955c571ee5c5eb7d4b81032be0f05fd/benchmark.js)
+for a real example on how to use.
