@@ -1,0 +1,11 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+    - 4
+    - 5
+    - 6
+before_script:
+    - sudo apt-get install gcc
+    - npm install -g coveralls nyc
+after_success: nyc report --reporter=text-lcov | coveralls
