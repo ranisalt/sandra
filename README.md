@@ -1,4 +1,6 @@
 # sandra
+[![NPM package][npm-image]][npm-url] [![Build status][travis-image]][travis-url] [![Coverage status][coverage-image]][coverage-url] [![Code Quality][codequality-image]][codequality-url] [![Dependencies][david-dm-image]][david-dm-url]
+
 Sandra is a simple, promise-only, low overhead benchmarking library for ES2015.
 It only contains benchmark and suite classes, both of which have a single
 method `run`.
@@ -57,8 +59,16 @@ You are ready to rock!
 You can check [node-argon2 benchmarks](https://github.com/ranisalt/node-argon2/blob/d138f7d33955c571ee5c5eb7d4b81032be0f05fd/benchmark.js)
 for a real example on how to use.
 
-
 # License
-Work licensed under the [MIT License](LICENSE). Please check
-[P-H-C/phc-winner-argon2] (https://github.com/P-H-C/phc-winner-argon2) for
-license over Argon2 and the reference implementation.
+Work licensed under the [MIT License](LICENSE).
+
+[npm-image]: https://img.shields.io/npm/v/sandra.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/sandra
+[travis-image]: https://img.shields.io/travis/ranisalt/sandra/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/ranisalt/sandra
+[coverage-image]: https://img.shields.io/coveralls/ranisalt/sandra/master.svg?style=flat-square
+[coverage-url]: https://coveralls.io/github/ranisalt/sandra
+[codequality-image]: https://img.shields.io/codacy/15927f4eb15747fd8a537e48a04bd4f6/master.svg?style=flat-square
+[codequality-url]: https://www.codacy.com/app/ranisalt/sandra
+[david-dm-image]: https://img.shields.io/david/ranisalt/sandra.svg?style=flat-square
+[david-dm-url]: https://david-dm.org/ranisalt/sandra
