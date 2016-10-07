@@ -68,7 +68,7 @@ Work licensed under the [MIT License](LICENSE).
 [travis-url]: https://travis-ci.org/ranisalt/sandra
 [coverage-image]: https://img.shields.io/coveralls/ranisalt/sandra/master.svg?style=flat-square
 [coverage-url]: https://coveralls.io/github/ranisalt/sandra
-[codequality-image]: https://img.shields.io/codacy/15927f4eb15747fd8a537e48a04bd4f6/master.svg?style=flat-square
+[codequality-image]: https://img.shields.io/codacy/badc13b2129948a1bf812700636c4f3a/master.svg?style=flat-square
 [codequality-url]: https://www.codacy.com/app/ranisalt/sandra
 [david-dm-image]: https://img.shields.io/david/ranisalt/sandra.svg?style=flat-square
 [david-dm-url]: https://david-dm.org/ranisalt/sandra
