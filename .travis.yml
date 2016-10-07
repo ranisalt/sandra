@@ -8,4 +8,5 @@ node_js:
 before_script:
     - sudo apt-get install gcc
     - npm install -g coveralls nyc
+script: nyc npm test
 after_success: nyc report --reporter=text-lcov | coveralls
