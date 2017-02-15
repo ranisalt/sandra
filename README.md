@@ -1,4 +1,6 @@
 # sandra
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/ranisalt/sandra.svg)](https://greenkeeper.io/)
 [![NPM package][npm-image]][npm-url] [![Build status][travis-image]][travis-url] [![Coverage status][coverage-image]][coverage-url] [![Code Quality][codequality-image]][codequality-url] [![Dependencies][david-dm-image]][david-dm-url]
 
 Sandra is a simple, promise-only, low overhead benchmarking library for ES2015.
