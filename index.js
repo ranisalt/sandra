@@ -1,5 +1,5 @@
 const EventEmitter = require('events')
-const each = require('async/each')
+const eachSeries = require('async/eachSeries')
 const whilst = require('async/whilst')
 const {now} = require('microtime')
 
@@ -73,7 +73,7 @@ class Suite extends EventEmitter {
       options = Object.assign({timeout: 1e3}, options)
 
       this.emit('start')
-      each(this.benchmarks, (benchmark, callback) => {
+      eachSeries(this.benchmarks, (benchmark, callback) => {
         benchmark.run(options.timeout).then(stats => {
           const average = avg(stats)
           const deviation = Math.sqrt(avg(stats.map(value => {
