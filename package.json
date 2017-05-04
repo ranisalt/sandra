@@ -1,14 +1,12 @@
 {
   "name": "sandra",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A benchmarking library for modern, promised Javascript.",
-  "main": "lib/index.js",
-  "jsnext:main": "src/index.js",
+  "main": "src/index.js",
   "scripts": {
-    "build": "babel -d lib/ src/",
     "clean": "rm -rf coverage .nyc_output",
-    "prepublish": "npm run build",
-    "test": "xo && ava -r babel-register"
+    "prepublish": "npm run test && npm run clean",
+    "test": "standard && nyc --reporter=lcov ava"
   },
   "repository": {
     "type": "git",
@@ -24,28 +22,22 @@
   },
   "homepage": "https://github.com/ranisalt/sandra#readme",
   "dependencies": {
-    "babel-runtime": "^6.11.6",
+    "async": "^2.4.0",
     "microtime": "^2.1.1"
   },
   "devDependencies": {
-    "ava": "^0.18.1",
-    "babel-cli": "^6.14.0",
-    "babel-plugin-transform-async-to-generator": "^6.16.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.16.0",
-    "babel-plugin-transform-es2015-parameters": "^6.17.0",
-    "babel-plugin-transform-es2015-spread": "^6.8.0",
-    "babel-plugin-transform-runtime": "^6.12.0",
-    "babel-register": "^6.14.0",
-    "xo": "^0.17.1"
+    "ava": "^0.19.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "nyc": "^8.1.0",
+    "standard": "^10.0.2"
   },
-  "xo": {
-    "esnext": true,
-    "ignores": "lib/**",
-    "rules": {
-      "babel/no-await-in-loop": 0,
-      "no-unmodified-loop-condition": 0
-    },
-    "semicolon": false,
-    "space": true
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "ava": {
+    "files": [
+      "test.js"
+    ],
+    "babel": "inherit"
   }
 }

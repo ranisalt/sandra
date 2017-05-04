@@ -1,10 +1,10 @@
-import test from 'ava'
-import {Benchmark} from './src/'
+const test = require('ava')
+const {Benchmark} = require('./')
 
 const timeout = 10
 
-// fuck this is ugly but works as a charm
-const sleep = delay => () => new Promise(resolve => setTimeout(resolve, delay))
+// needed +1 to fix skewed timer loop
+const sleep = delay => () => new Promise(resolve => setTimeout(resolve, delay + 1))
 
 test('run the function for given time', async t => {
   const bench = new Benchmark('test', sleep(timeout * 2))
