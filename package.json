@@ -1,10 +1,11 @@
 {
   "name": "sandra",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A benchmarking library for modern, promised Javascript.",
   "main": "src/index.js",
   "scripts": {
     "clean": "rm -rf coverage .nyc_output",
+    "prepublish": "npm run test && npm run clean",
     "test": "standard && nyc --reporter=lcov ava"
   },
   "repository": {
