@@ -1,0 +1,6 @@
+.babelrc
+.editorconfig
+.git*
+.idea
+.node-version
+.travis.yml
