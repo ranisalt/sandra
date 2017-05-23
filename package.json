@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf coverage .nyc_output",
     "prepublish": "npm run test && npm run clean",
-    "test": "standard && nyc --reporter=lcov ava"
+    "test": "standard && nyc ava"
   },
   "repository": {
     "type": "git",
