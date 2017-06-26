@@ -28,7 +28,7 @@
   "devDependencies": {
     "ava": "^0.19.1",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "nyc": "^10.3.2",
+    "nyc": "^11.0.3",
     "standard": "^10.0.2"
   },
   "engines": {
