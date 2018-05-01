@@ -1,6 +1,7 @@
-.babelrc
 .editorconfig
 .git*
 .idea
 .node-version
+.nyc_output
 .travis.yml
+coverage
