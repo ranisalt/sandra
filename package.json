@@ -23,7 +23,7 @@
   "homepage": "https://github.com/ranisalt/sandra#readme",
   "dependencies": {
     "async": "^2.6.0",
-    "microtime": "^2.1.7"
+    "microtime": "^2.1.8"
   },
   "devDependencies": {
     "mocha": "^5.1.1",
