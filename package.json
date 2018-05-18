@@ -1,6 +1,6 @@
 {
   "name": "sandra",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A benchmarking library for modern, promised Javascript.",
   "main": "src/index.js",
   "scripts": {
