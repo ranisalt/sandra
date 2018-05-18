@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf coverage .nyc_output",
     "prepublish": "npm run test && npm run clean",
-    "test": "nyc mocha"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -26,9 +26,7 @@
     "microtime": "^2.1.8"
   },
   "devDependencies": {
-    "mocha": "^5.1.1",
-    "nyc": "^11.7.1",
-    "standard": "^11.0.1"
+    "mocha": "^5.1.1"
   },
   "engines": {
     "node": ">=7.6.0"
