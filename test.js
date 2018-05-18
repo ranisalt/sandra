@@ -13,7 +13,7 @@ describe('Benchmark', () => {
     const bench = new Benchmark('it', sleep(timeout * 2))
     return bench.run(timeout).then(stats => {
       assert.equal(1, stats.length)
-      assert.ok(stats[0] >= (timeout * 2000))
+      assert.ok(stats[0] >= (timeout * 2))
     })
   })
 

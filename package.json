@@ -21,13 +21,10 @@
     "url": "https://github.com/ranisalt/sandra/issues"
   },
   "homepage": "https://github.com/ranisalt/sandra#readme",
-  "dependencies": {
-    "microtime": "^2.1.8"
-  },
   "devDependencies": {
     "mocha": "^5.1.1"
   },
   "engines": {
-    "node": ">=7.6.0"
+    "node": ">=8.5.0"
   }
 }

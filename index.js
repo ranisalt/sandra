@@ -1,5 +1,5 @@
 const EventEmitter = require('events')
-const {now} = require('microtime')
+const {performance} = require('perf_hooks')
 
 class Benchmark extends EventEmitter {
   constructor (title, func, ...args) {
@@ -19,9 +19,9 @@ class Benchmark extends EventEmitter {
     }, timeout)
 
     while (running) {
-      const start = now()
+      const start = performance.now()
       await func(...args)
-      elapsed.push(now() - start)
+      elapsed.push(performance.now() - start)
     }
 
     return elapsed
@@ -37,7 +37,7 @@ class Result {
   }
 
   toString () {
-    const ops = `${(1000000 / this.average).toFixed(2)} ops/sec`
+    const ops = `${(1000 / this.average).toFixed(2)} ops/sec`
     const dev = `±${(this.deviation / this.average).toFixed(2)}%`
     const runs = `${this.runs} runs sampled`
     return `${this.title} x ${ops} ${dev} (${runs})`
