@@ -1,6 +1,4 @@
 const EventEmitter = require('events')
-const eachSeries = require('async/eachSeries')
-const whilst = require('async/whilst')
 const {now} = require('microtime')
 
 class Benchmark extends EventEmitter {
@@ -11,29 +9,22 @@ class Benchmark extends EventEmitter {
     this.args = args
   }
 
-  run (timeout) {
-    return new Promise((resolve, reject) => {
-      const {args, func} = this
-      const elapsed = []
-      let running = true
+  async run (timeout) {
+    const {args, func} = this
+    const elapsed = []
+    let running = true
 
-      whilst(() => running, callback => {
-        const start = now()
-        func(...args).then(() => {
-          elapsed.push(now() - start)
-          callback()
-        })
-      }, err => {
-        if (err) {
-          reject(err)
-        }
-        resolve(elapsed)
-      })
+    setTimeout(() => {
+      running = false
+    }, timeout)
 
-      setTimeout(() => {
-        running = false
-      }, timeout)
-    })
+    while (running) {
+      const start = now()
+      await func(...args)
+      elapsed.push(now() - start)
+    }
+
+    return elapsed
   }
 }
 
@@ -68,33 +59,25 @@ class Suite extends EventEmitter {
     return this
   }
 
-  run (options) {
-    return new Promise((resolve, reject) => {
-      options = Object.assign({timeout: 1e3}, options)
+  async run (options) {
+    options = Object.assign({timeout: 1e3}, options)
+    this.emit('start')
 
-      this.emit('start')
-      eachSeries(this.benchmarks, (benchmark, callback) => {
-        benchmark.run(options.timeout).then(stats => {
-          const average = avg(stats)
-          const deviation = Math.sqrt(avg(stats.map(value => {
-            const diff = average - value
-            return diff * diff
-          })))
+    for (let benchmark of this.benchmarks) {
+      const stats = await benchmark.run(options.timeout)
 
-          this.emit('cycle', new Result(`${this.title}#${benchmark.title}`, {
-            average, deviation, runs: stats.length
-          }))
+      const average = avg(stats)
+      const deviation = Math.sqrt(avg(stats.map(value => {
+        const diff = average - value
+        return diff * diff
+      })))
 
-          callback()
-        }).catch(callback)
-      }, err => {
-        if (err) {
-          reject(err)
-        }
-        this.emit('complete')
-        resolve()
-      })
-    })
+      this.emit('cycle', new Result(`${this.title}#${benchmark.title}`, {
+        average, deviation, runs: stats.length
+      }))
+    }
+
+    this.emit('complete')
   }
 }
 

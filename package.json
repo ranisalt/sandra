@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/ranisalt/sandra#readme",
   "dependencies": {
-    "async": "^2.6.0",
     "microtime": "^2.1.8"
   },
   "devDependencies": {
