@@ -12,16 +12,15 @@ class Benchmark extends EventEmitter {
   async run (timeout) {
     const {args, func} = this
     const elapsed = []
-    let running = true
 
-    setTimeout(() => {
-      running = false
-    }, timeout)
+    let end = performance.now()
+    const finish = performance.now() + timeout
 
-    while (running) {
+    while (end < finish) {
       const start = performance.now()
       await func(...args)
-      elapsed.push(performance.now() - start)
+      end = performance.now()
+      elapsed.push(end - start)
     }
 
     return elapsed
