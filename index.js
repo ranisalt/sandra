@@ -28,7 +28,7 @@ class Benchmark extends EventEmitter {
   }
 }
 
-const avg = arr => arr.reduce((sum, value) => sum + value, 0) / arr.length
+const avg = (arr) => arr.reduce((sum, value) => sum + value, 0) / arr.length
 
 class Result {
   constructor (title, args) {
@@ -67,7 +67,7 @@ class Suite extends EventEmitter {
       const stats = await benchmark.run(options.timeout)
 
       const average = avg(stats)
-      const deviation = Math.sqrt(avg(stats.map(value => {
+      const deviation = Math.sqrt(avg(stats.map((value) => {
         const diff = average - value
         return diff * diff
       })))
