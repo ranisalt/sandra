@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/ranisalt/sandra#readme",
   "devDependencies": {
-    "mocha": "^5.1.1"
+    "mocha": "^6.0.0"
   },
   "engines": {
     "node": ">=8.5.0"
